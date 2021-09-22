@@ -14,8 +14,8 @@ module.exports = {
                 },
             },
             fontFamily: {
-                display: ["Cormorant Garamond", "ui-serif"],
-                body: ["Inter", "ui-sans-serif"],
+                display: ["Cormorant Garamond", "ui-sans-serif"],
+                body: ["Inter", "ui-serif"],
             },
         },
     },
