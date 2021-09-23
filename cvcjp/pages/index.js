@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { gql } from "graphql-request";
-import { graphcms } from "../../lib/_graphcms";
+import { graphcms } from "../lib/_graphcms";
 
 export default function Home() {
     return (
