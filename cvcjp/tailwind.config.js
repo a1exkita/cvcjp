@@ -11,11 +11,15 @@ module.exports = {
                 gray: {
                     dark: "#111111",
                     border: "#333333",
+                    text: "#8B8F97",
+                },
+                blue: {
+                    highlight: "#35F3FF",
                 },
             },
             fontFamily: {
-                display: ["Cormorant Garamond", "ui-sans-serif"],
-                body: ["Inter", "ui-serif"],
+                sans: ["Inter", "sans-serif"],
+                serif: ["Cormorant Garamond", "serif"],
             },
         },
     },

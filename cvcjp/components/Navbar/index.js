@@ -30,12 +30,12 @@ export const NAVIGATION = [
 function Navbar() {
     return (
         <div>
-            <header className="bg-black p-4 h-20 flex flex-row justify-between items-center">
-                <img src="logo.svg" alt="logo" />
+            <header className="bg-black p-4 h-20 flex flex-row justify-between items-center border-b-2 border-gray-border fixed w-full">
+                <img src="/logo.svg" alt="logo" />
                 <div>
                     {NAVIGATION.map(({ name, route }) => (
                         <a
-                            className="text-white text-bold p-2"
+                            className="text-white px-4 font-sans font-extrabold"
                             key={name}
                             href={route}
                         >
