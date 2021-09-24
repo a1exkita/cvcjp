@@ -5,7 +5,7 @@ import Navbar from "../../components/Navbar";
 const enum_type = {
     GUEST_SPEAKER: "Guest Speaker",
     CAREER: "Career",
-    PANEL_SESSION: "Panel Session",
+    PANNEL_SESSION: "Panel Session",
 };
 
 export default function events({ data }) {
@@ -28,7 +28,7 @@ export default function events({ data }) {
                 {data.events
                     .filter((event) => now < Date.parse(event.date))
                     .map((event) => (
-                        <>
+                        <div key={event.slug}>
                             <div className="flex flex-row justify-items-center mx-8">
                                 <div className="flex flex-col h-64 w-1/2 items-center ml-12 pl-20">
                                     <img
@@ -39,22 +39,22 @@ export default function events({ data }) {
                                 </div>
                                 <div className="flex flex-col w-1/2">
                                     <div className="flex flex-row justify-between w-7/12  border-t-2 border-white">
-                                        <p className="my-4 font-serif text-lg">
+                                        <p className="my-4 font-serif text-lg text-blue-highlight">
                                             {enum_type[event.articleType]}
                                         </p>
                                         <p className="my-4 font-sans fonts-medium text-sm">
                                             {event.date}
                                         </p>
                                     </div>
-                                    <a href={"/events/" + event.slug}>
-                                        <h1 className="text-white font-serif text-4xl w-7/12">
+                                    <a href={event.registrationLink}>
+                                        <h1 className="text-white font-serif text-4xl w-7/12 hover:underline">
                                             {event.title}
                                         </h1>
                                     </a>
                                     <p className="my-4 font-sans fonts-medium text-sm w-7/12 mt-8">
                                         {event.summary}
                                     </p>
-                                    <a href={"/events/" + event.slug}>
+                                    <a href={event.registrationLink}>
                                         <div className="rounded bg-blue-highlight text-black w-36 h-12 justify-center iteams-center flex-col flex">
                                             <p className="text-md font-sans font-extrabold text-black text-center">
                                                 REGISTER
@@ -63,7 +63,7 @@ export default function events({ data }) {
                                     </a>
                                 </div>
                             </div>
-                        </>
+                        </div>
                     ))}
                 <h1 className="font-serif font-extrabold text-4xl  mt-16 mb-8  text-white text-center">
                     Past Events
@@ -71,7 +71,7 @@ export default function events({ data }) {
                 {data.events
                     .filter((event) => now >= Date.parse(event.date))
                     .map((event) => (
-                        <>
+                        <div key={event.slug}>
                             <div className="flex flex-row justify-items-center mx-8">
                                 <div className="flex flex-col h-64 w-1/2 items-center ml-12 pl-20">
                                     <img
@@ -82,7 +82,7 @@ export default function events({ data }) {
                                 </div>
                                 <div className="flex flex-col w-1/2">
                                     <div className="flex flex-row justify-between w-7/12  border-t-2 border-white">
-                                        <p className="my-4 font-serif text-lg">
+                                        <p className="my-4 font-serif text-blue-highlight text-lg">
                                             {enum_type[event.articleType]}
                                         </p>
                                         <p className="my-4 font-sans fonts-medium text-sm">
@@ -90,23 +90,16 @@ export default function events({ data }) {
                                         </p>
                                     </div>
                                     <a href={"/events/" + event.slug}>
-                                        <h1 className="text-white font-serif text-4xl w-7/12">
+                                        <h1 className="text-white font-serif text-4xl w-7/12 hover:underline">
                                             {event.title}
                                         </h1>
                                     </a>
                                     <p className="my-4 font-sans fonts-medium text-sm w-7/12 mt-8">
                                         {event.summary}
                                     </p>
-                                    <a href={"/events/" + event.slug}>
-                                        <div className="rounded bg-blue-highlight text-black w-36 h-12 justify-center iteams-center flex-col flex">
-                                            <p className="text-md font-sans font-extrabold text-black text-center">
-                                                REGISTER
-                                            </p>
-                                        </div>
-                                    </a>
                                 </div>
                             </div>
-                        </>
+                        </div>
                     ))}
             </div>
         </div>
@@ -137,6 +130,7 @@ export const getStaticProps = async ({ params }) => {
                 }
                 articleType
                 summary
+                registrationLink
             }
         }
     `;
