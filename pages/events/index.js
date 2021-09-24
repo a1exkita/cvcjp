@@ -71,7 +71,7 @@ export default function events({ data }) {
                 {data.events
                     .filter((event) => now >= Date.parse(event.date))
                     .map((event) => (
-                        <div key={event.slug}>
+                        <div key={event.slug} className="mb-12">
                             <div className="flex flex-row justify-items-center mx-8">
                                 <div className="flex flex-col h-64 w-1/2 items-center ml-12 pl-20">
                                     <img
